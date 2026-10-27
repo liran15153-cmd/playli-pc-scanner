@@ -1,0 +1,12 @@
+artifacts/
+**/bin/
+**/obj/
+.vs/
+.env*
+*.user
+*.pfx
+*.p12
+*.key
+*.pem
+private/
+__pycache__/

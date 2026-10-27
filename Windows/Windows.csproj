@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AssemblyName>PLAYLI-PC-Check</AssemblyName><Version>2.2.0</Version><Company>PLAYLI</Company><Product>PLAYLI PC Check</Product>
+    <RepositoryUrl>https://github.com/liran15153-cmd/playli-pc-scanner</RepositoryUrl><PackageLicenseExpression>MIT</PackageLicenseExpression><Copyright>Copyright (c) 2026 PLAYLI contributors</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest><ApplicationIcon>Assets/playli.ico</ApplicationIcon><PublishSingleFile>true</PublishSingleFile><SelfContained>true</SelfContained><IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract><EnableCompressionInSingleFile>true</EnableCompressionInSingleFile><DebugType>none</DebugType><RuntimeFrameworkVersion>10.0.13</RuntimeFrameworkVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Core/Core.csproj" /><PackageReference Include="System.Management" Version="10.0.0" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Assets/playli.ico" LogicalName="Playli.PcCheck.Icon" /></ItemGroup>
+</Project>

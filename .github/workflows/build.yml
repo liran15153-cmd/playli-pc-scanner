@@ -1,0 +1,35 @@
+name: Build and verify Windows scanner
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+      - name: Test, build and verify unsigned candidate
+        shell: bash
+        env:
+          PLAYLI_PYTHON: python
+          DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+        run: bash build.sh
+      - name: Upload unsigned review artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playli-pc-scanner-unsigned
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 14
